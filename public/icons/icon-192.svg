@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- Background -->
+  <circle cx="96" cy="96" r="96" fill="#7c3aed"/>
+  <!-- Pokeball -->
+  <circle cx="96" cy="96" r="60" fill="#EF4444"/>
+  <path d="M36 96 Q96 96 156 96" stroke="#1a1a1a" stroke-width="6" fill="none"/>
+  <rect x="36" y="90" width="120" height="12" fill="white"/>
+  <!-- Center circle -->
+  <circle cx="96" cy="96" r="18" fill="white" stroke="#1a1a1a" stroke-width="4"/>
+  <circle cx="96" cy="96" r="10" fill="#EF4444" stroke="#1a1a1a" stroke-width="3"/>
+  <!-- Shine -->
+  <ellipse cx="76" cy="72" rx="14" ry="8" fill="rgba(255,255,255,0.25)" transform="rotate(-30 76 72)"/>
+  <!-- Yellow glow ring -->
+  <circle cx="96" cy="96" r="62" fill="none" stroke="#FFCC00" stroke-width="3" opacity="0.6"/>
+</svg>

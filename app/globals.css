@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pokemon-yellow: #FFCC00;
+  --pokemon-red: #FF0000;
+  --pokemon-blue: #3B4CCA;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  overscroll-behavior: none;
+}
+
+.silhouette {
+  filter: brightness(0) !important;
+  transition: filter 0.6s ease;
+}
+
+.silhouette-revealed {
+  filter: brightness(1);
+  animation: reveal 0.6s ease-out;
+}
+
+@keyframes reveal {
+  0% { filter: brightness(0); transform: scale(0.95); }
+  100% { filter: brightness(1); transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confetti-fall linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.btn-pokemon {
+  @apply relative overflow-hidden font-bold rounded-2xl transition-all duration-200 active:scale-95 select-none;
+}
+
+.btn-pokemon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-pokemon:hover::after {
+  opacity: 1;
+}
+
+.card-pokemon {
+  @apply bg-white rounded-3xl shadow-2xl;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 3px rgba(255,204,0,0.3);
+}
+
+.type-badge {
+  @apply inline-block px-2 py-0.5 rounded-full text-xs font-bold text-white uppercase tracking-wide;
+}
+
+/* Pokemon type colors */
+.type-fire { background-color: #F08030; }
+.type-water { background-color: #6890F0; }
+.type-grass { background-color: #78C850; }
+.type-electric { background-color: #F8D030; color: #333; }
+.type-psychic { background-color: #F85888; }
+.type-ice { background-color: #98D8D8; color: #333; }
+.type-dragon { background-color: #7038F8; }
+.type-dark { background-color: #705848; }
+.type-fairy { background-color: #EE99AC; color: #333; }
+.type-normal { background-color: #A8A878; }
+.type-fighting { background-color: #C03028; }
+.type-flying { background-color: #A890F0; }
+.type-poison { background-color: #A040A0; }
+.type-ground { background-color: #E0C068; color: #333; }
+.type-rock { background-color: #B8A038; }
+.type-bug { background-color: #A8B820; }
+.type-ghost { background-color: #705898; }
+.type-steel { background-color: #B8B8D0; color: #333; }
+
+input:focus {
+  outline: none;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.pokeball-spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Mobile safe area */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
